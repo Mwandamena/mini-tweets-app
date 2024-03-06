@@ -13,6 +13,8 @@ export const useLogin = () => {
   const { dispatch } = UseAuthContext();
   const navigate = useNavigate();
 
+  console.log(import.meta.env.VITE_API_URL);
+
   const login = async (formBody) => {
     setLoading(true);
     setDisabled(true);
