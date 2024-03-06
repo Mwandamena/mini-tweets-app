@@ -38,7 +38,7 @@ export default function User() {
     const timer = setTimeout(async () => {
       if (inputRef.current.value === search) {
         const response = await fetch(
-          `${process.env.APP_URL}users/search/?q=${search}`,
+          `${import.meta.env.VITE_API_URL}users/search/?q=${search}`,
           {
             method: "GET",
             headers: {
