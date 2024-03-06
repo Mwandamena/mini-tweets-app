@@ -27,7 +27,7 @@ const port = process.env.PORT || 3000;
 // enable cors
 app.use(
   cors({
-    origin: "https://mini-tweets-app.vercel.app/",
+    origin: ["https://mini-tweets-app.vercel.app", "http://localhost:5173"],
     credentials: true,
     methods: "GET, POST, DELETE, PUT",
   })
