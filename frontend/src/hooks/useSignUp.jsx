@@ -21,7 +21,7 @@ export const useSignUp = () => {
     // request
     try {
       const response = await axios.post(
-        `${process.env.APP_URL}auth/signup`,
+        `${import.meta.env.VITE_API_URL}auth/signup`,
         formBody
       );
       const data = response.data;

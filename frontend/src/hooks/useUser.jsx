@@ -9,12 +9,15 @@ export const useUserTweets = () => {
 
   const getUserTweets = async () => {
     try {
-      const response = await axios.get(`${process.env.APP_URL}auth/current`, {
-        withCredentials: true,
-        headers: {
-          Authorization: `Bearer ${user.token}`,
-        },
-      });
+      const response = await axios.get(
+        `${import.meta.env.VITE_API_URL}auth/current`,
+        {
+          withCredentials: true,
+          headers: {
+            Authorization: `Bearer ${user.token}`,
+          },
+        }
+      );
       if (response) {
         console.log(response.data);
         return response.data;

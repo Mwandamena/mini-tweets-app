@@ -7,7 +7,7 @@ export const useFetch = () => {
   const [loading, setLoading] = useState(true);
 
   const fetchUser = async () => {
-    const response = await fetch(`${process.env.APP_URL}auth/current`, {
+    const response = await fetch(`${import.meta.env.VITE_API_URL}auth/current`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -26,7 +26,7 @@ export const useFetch = () => {
 
   const fetchFeed = async () => {
     try {
-      const response = await axios.get(`${process.env.APP_URL}tweets`, {
+      const response = await axios.get(`${import.meta.env.VITE_API_URL}tweets`, {
         withCredentials: true,
         headers: {
           Authorization: `Bearer ${user.token}`,
@@ -47,7 +47,7 @@ export const useFetch = () => {
 
   const fetchUsers = async () => {
     try {
-      const response = await axios.get(`${process.env.APP_URL}users`, {
+      const response = await axios.get(`${import.meta.env.VITE_API_URL}users`, {
         withCredentials: true,
         headers: {
           Authorization: `Bearer ${user.token}`,
@@ -66,7 +66,7 @@ export const useFetch = () => {
 
   const fetchSingleUser = async (id) => {
     try {
-      const response = await axios.get(`${process.env.APP_URL}users/${id}`, {
+      const response = await axios.get(`${import.meta.env.VITE_API_URL}users/${id}`, {
         withCredentials: true,
         headers: {
           Authorization: `Bearer ${user.token}`,

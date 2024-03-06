@@ -23,7 +23,7 @@ export const useDeleteAccount = () => {
     // request
     try {
       const response = await axios.delete(
-        `${process.env.APP_URL}users/${user.id}`,
+        `${import.meta.env.VITE_API_URL}users/${user.id}`,
         {
           headers: {
             Authorization: `Bearer ${user.token}`,

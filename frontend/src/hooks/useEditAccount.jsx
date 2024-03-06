@@ -21,7 +21,7 @@ export const useEditAccount = () => {
     // request
     try {
       const response = await axios.put(
-        `${process.env.APP_URL}users/${user.id}`,
+        `${import.meta.env.VITE_API_URL}users/${user.id}`,
         formBody,
         {
           headers: {

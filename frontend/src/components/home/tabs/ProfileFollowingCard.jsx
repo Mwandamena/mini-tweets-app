@@ -21,7 +21,7 @@ export default function ProfileFollowingCard({ follow }) {
     if (followed) {
       try {
         const data = await axios.post(
-          `${process.env.APP_URL}follow/u`,
+          `${import.meta.env.VITE_API_URL}follow/u`,
           formData,
           {
             withCredentials: true,
@@ -41,7 +41,7 @@ export default function ProfileFollowingCard({ follow }) {
       try {
         setFollowed(true);
         const data = await axios.post(
-          `${process.env.APP_URL}follow`,
+          `${import.meta.env.VITE_API_URL}follow`,
           formData,
           {
             withCredentials: true,
