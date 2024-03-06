@@ -39,7 +39,7 @@ export default function UserProfileFollowing({ follow }) {
     if (followed) {
       try {
         const data = await axios.post(
-          "http://localhost:3000/api/v1/follow/u",
+          `${process.env.APP_URL}follow/u`,
           formData,
           {
             withCredentials: true,
@@ -58,7 +58,7 @@ export default function UserProfileFollowing({ follow }) {
       try {
         setFollowed(true);
         const data = await axios.post(
-          "http://localhost:3000/api/v1/follow",
+          `${process.env.APP_URL}follow`,
           formData,
           {
             withCredentials: true,

@@ -21,7 +21,7 @@ export const useLogin = () => {
     // request
     try {
       const response = await axios.post(
-        "http://localhost:3000/api/v1/auth/login",
+        `${process.env.APP_URL}auth/login`,
         formBody
       );
       const data = response.data;
@@ -41,7 +41,7 @@ export const useLogin = () => {
     } catch (error) {
       setLoading(false);
       setDisabled(false);
-      setError(error?.response.data.message);
+      setError(error?.response.data.message || error.message);
       console.log("LOGIN ERROR: ", error.message);
     }
   };

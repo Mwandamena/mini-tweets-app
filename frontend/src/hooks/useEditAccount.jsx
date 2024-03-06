@@ -21,7 +21,7 @@ export const useEditAccount = () => {
     // request
     try {
       const response = await axios.put(
-        `http://localhost:3000/api/v1/users/${user.id}`,
+        `${process.env.APP_URL}users/${user.id}`,
         formBody,
         {
           headers: {

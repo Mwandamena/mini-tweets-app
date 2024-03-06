@@ -21,7 +21,7 @@ export const useSignUp = () => {
     // request
     try {
       const response = await axios.post(
-        "http://localhost:3000/api/v1/auth/signup",
+        `${process.env.APP_URL}auth/signup`,
         formBody
       );
       const data = response.data;
@@ -41,7 +41,7 @@ export const useSignUp = () => {
     } catch (error) {
       setLoading(false);
       setDisabled(false);
-      setError(error?.response.data.message);
+      setError(error?.response.data.message || error.message);
       console.log("SIGNUP ERROR: ", error.message);
     }
   };

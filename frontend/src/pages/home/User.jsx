@@ -38,7 +38,7 @@ export default function User() {
     const timer = setTimeout(async () => {
       if (inputRef.current.value === search) {
         const response = await fetch(
-          `http://localhost:3000/api/v1/users/search/?q=${search}`,
+          `${process.env.APP_URL}users/search/?q=${search}`,
           {
             method: "GET",
             headers: {

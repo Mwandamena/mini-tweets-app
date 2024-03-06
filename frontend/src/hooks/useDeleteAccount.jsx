@@ -23,7 +23,7 @@ export const useDeleteAccount = () => {
     // request
     try {
       const response = await axios.delete(
-        `http://localhost:3000/api/v1/users/${user.id}`,
+        `${process.env.APP_URL}users/${user.id}`,
         {
           headers: {
             Authorization: `Bearer ${user.token}`,

@@ -28,7 +28,7 @@ export default function UserTweet({ name, content, time, id, authorId }) {
     setLoading(true);
     try {
       const response = await axios.delete(
-        `http://localhost:3000/api/v1/tweets/${id}`,
+        `${process.env.APP_URL}tweets/${id}`,
         {
           headers: {
             Authorization: `Bearer ${user.token}`,
@@ -62,7 +62,7 @@ export default function UserTweet({ name, content, time, id, authorId }) {
 
     try {
       const response = await axios.put(
-        `http://localhost:3000/api/v1/tweets/${id}`,
+        `${process.env.APP_URL}tweets/${id}`,
         formBody,
         {
           headers: {
