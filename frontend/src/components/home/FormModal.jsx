@@ -44,7 +44,7 @@ export default function FormModal({ acitve }) {
         content,
       };
       const response = await axios.post(
-        "http://localhost:3000/api/v1/tweets",
+        `${import.meta.env.VITE_API_URL}tweets`,
         formData,
         {
           withCredentials: true,
