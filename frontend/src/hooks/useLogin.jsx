@@ -21,7 +21,7 @@ export const useLogin = () => {
     // request
     try {
       const response = await axios.post(
-        `${process.env.APP_URL}auth/login`,
+        `${import.meta.env.APP_URL}auth/login`,
         formBody
       );
       const data = response.data;
