@@ -21,7 +21,7 @@ export const useLogin = () => {
     // request
     try {
       const response = await axios.post(
-        `${import.meta.env.APP_URL}auth/login`,
+        `${import.meta.env.VITE_API_URL}auth/login`,
         formBody
       );
       const data = response.data;
