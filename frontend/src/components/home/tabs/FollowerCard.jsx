@@ -43,7 +43,7 @@ export default function FollowerCard({ user, onClick, follow }) {
     if (followed) {
       try {
         const data = await axios.post(
-          "http://localhost:3000/api/v1/follow/u",
+          `${import.meta.env.VITE_API_URL}follow/u`,
           formData,
           {
             withCredentials: true,
@@ -61,7 +61,7 @@ export default function FollowerCard({ user, onClick, follow }) {
       try {
         setFollowed(true);
         const data = await axios.post(
-          "http://localhost:3000/api/v1/follow",
+          `${import.meta.env.VITE_API_URL}follow`,
           formData,
           {
             withCredentials: true,
