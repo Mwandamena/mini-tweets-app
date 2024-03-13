@@ -2,7 +2,6 @@ import React from "react";
 import UserTweet from "./UserTweet";
 
 export default function TweetTab({ tweets, author }) {
-  console.log(tweets);
   return (
     <div className="mt-4 w-full flex flex-col gap-4 divide-y divide-veryLightGray dark:divide-gray-800 bg-white dark:bg-secondary text-secondary dark:text-veryLightGray">
       {tweets.length > 0 ? (
