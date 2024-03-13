@@ -46,6 +46,12 @@ app.use(function (req, res, next) {
 app.use(express.json());
 app.use(cookieParser());
 
+app.get("/", (req, res) => {
+  res.status(200).json({
+    message: "Welcome to the mini-tweets-app clone API!",
+  });
+});
+
 app.use("/api/v1/auth/", authRouter);
 
 app.use("/api/v1/users", requireToken, userRouter);
