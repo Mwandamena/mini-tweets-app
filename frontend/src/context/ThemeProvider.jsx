@@ -18,7 +18,7 @@ export default function ThemeProvider({ children }) {
   useEffect(() => {
     document.documentElement.classList.toggle("dark", darkMode);
     localStorage.setItem("darkMode", darkMode);
-  }, [darkMode]);
+  }, []);
 
   return (
     <ThemeContext.Provider
