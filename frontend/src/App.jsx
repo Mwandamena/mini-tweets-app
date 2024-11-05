@@ -11,7 +11,6 @@ import {
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import Profile from "./pages/home/Profile";
-import Settngs from "./pages/home/Settings";
 import User from "./pages/home/User";
 import NotFound from "./pages/404";
 import Feed from "./pages/home/Feed";
