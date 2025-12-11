@@ -2,11 +2,12 @@
   "name": "Tweets-backend",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "start": "bunx server.js && prisma generate",
+    "start": "bunx server.js",
     "dev": "nodemon server.js",
     "devv": "bun --bunx server.js",
+    "postinstall": "npx prisma generate"
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
