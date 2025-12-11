@@ -7,7 +7,7 @@
     "start": "bunx server.js",
     "dev": "nodemon server.js",
     "devv": "bun --bunx server.js",
-    "postinstall": "npx prisma generate"
+    "postinstall": "npx prisma generate",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
