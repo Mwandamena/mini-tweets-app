@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "bunx server.js",
+    "start": "bunx server.js && prisma generate",
     "dev": "nodemon server.js",
     "devv": "bun --bunx server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
