@@ -1,0 +1,11 @@
+{
+  "extends": "../../../tsconfig.main.json",
+  "compilerOptions": {
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "paths": {
+      "@twitter-ds/tokens": ["../tokens/src/index.ts"]
+    }
+  },
+  "include": ["src", "src/App.tsx"]
+}

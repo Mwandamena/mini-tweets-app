@@ -1,0 +1,22 @@
+{
+  "name": "@mta/events",
+  "version": "0.0.1",
+  "main": "dist/index.js",
+  "description": "kafka-client private package for mini tweets application",
+  "private": true,
+  "scripts": {
+    "build": "tsc",
+    "build:pack": "tsc && npm pack"
+  },
+  "dependencies": {
+    "@mta/constants": "workspace:*",
+    "@mta/logger": "workspace:*",
+    "kafkajs": "^2.2.4"
+  },
+  "license": "MIT",
+  "author": "Kelvin Mwandamena",
+  "devDependencies": {
+    "@types/node": "^22.13.13",
+    "typescript": "^5.8.2"
+  }
+}

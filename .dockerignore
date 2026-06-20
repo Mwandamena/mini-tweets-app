@@ -1,0 +1,65 @@
+# Ignore version control files
+.git
+.gitignore
+
+# Ignore local environment variables and secrets
+.env
+.aws
+.ssh
+
+# Ignore temporary and cache files
+**/*.log
+**/.DS_Store
+tmp/
+
+# Ignore Docker-related files not needed inside the image
+Dockerfile
+docker-compose.yml
+.dockerignore       
+
+# Ignore documentation and tests (often not needed in production)
+README.md
+tests/
+docs/
+
+# builds
+dist
+
+# from the internet
+.git
+.idea
+.sonarqube
+.vs
+.vscode
+**/bin
+**/obj
+out
+**/node_modules
+**/generated
+**/TestResults
+
+
+# Ignore local dependency folders (Docker will install its own)
+**/node_modules
+node_modules
+
+# Ignore local build outputs and caches
+**/.next
+.next
+**/dist
+**/build
+**/.cache
+
+# Ignore version control systems
+.git
+.gitignore
+.gitattributes
+
+# Ignore OS-specific garbage
+**/.DS_Store
+Thumbs.db
+
+# Ignore local environment variables and logs
+**/*.log
+.env
+.env.*.local

@@ -1,2 +1,111 @@
-node_modules
+# ==========================================
+# 1. System & OS Files
+# ==========================================
+.DS_Store
+.DS_Store?
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# ==========================================
+# 2. Dependencies (Node / Package Managers)
+# ==========================================
+node_modules/
+.pnpm-store/
+.npm/
+pnpm-lock.yaml! # Un-comment if you WANT to ignore locks, but keeping lockfiles is recommended
+yarn-error.log
+pnpm-debug.log*
+
+# ==========================================
+# 3. Monorepo Tools (Turborepo & Nx)
+# ==========================================
+.turbo/
+.cache/
+.nx/
+
+# ==========================================
+# 4. Compilers & Build Outputs (tsc, next, apps)
+# ==========================================
+# TypeScript build folders
+dist/
+build/
+out/
+
+# Next.js build output
+.next/
+
+# Next.js Static HTML export output
+out/
+
+# TS/JS tracking files
+*.tsbuildinfo
+.eslintcache
+
+# ==========================================
+# 5. Environment Variables & Secrets (CRITICAL)
+# ==========================================
 .env
+.env.local
+.env.docker
+.env.development.local
+.env.test.local
+.env.production.local
+.env.*.local
+*.pem
+*.key
+*.cert
+
+# Allow committing example environment files
+!.env.example
+
+# ==========================================
+# 6. Docker & Local Infrastructure Data
+# ==========================================
+# Ignore local runtime data persisted by Prometheus/Loki/Grafana/Postgres containers
+.docker-data/
+**/data/prometheus/
+**/data/loki/
+**/data/grafana/
+**/data/postgres/
+**/data/tempo/
+
+# Ignore local container logs
+*.log
+docker-compose.override.yml
+
+# ==========================================
+# 7. Testing & Coverage
+# ==========================================
+coverage/
+.nyc_output/
+.playwright/
+test-results/
+
+# ==========================================
+# 8. IDEs & Editors
+# ==========================================
+.idea/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+!.vscode/launch.json
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+*.tgz
+
+# ==========================================
+# 9. Prisma ORM
+# ==========================================
+# Ignore the generated Prisma Client (if you override the default output location)
+generated/
+
+# SQLite database files (if used locally for testing)
+*.db
+*.db-journal
+
+# Prisma schema validation / environment overrides
+.env.prisma

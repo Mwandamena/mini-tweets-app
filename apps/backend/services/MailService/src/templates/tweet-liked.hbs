@@ -1,0 +1,79 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tweet Liked</title>
+    <style>
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+          Arial, sans-serif;
+        line-height: 1.6;
+        color: #1f2937;
+        background-color: #f3f4f6;
+        margin: 0;
+        padding: 0;
+      }
+      .container {
+        max-width: 600px;
+        margin: 0 auto;
+        background-color: #ffffff;
+      }
+      .header {
+        background-color: #f91880;
+        padding: 30px 20px;
+        text-align: center;
+        color: white;
+      }
+      .content {
+        padding: 40px 30px;
+      }
+      .tweet-preview {
+        background-color: #f9fafb;
+        border-left: 4px solid #f91880;
+        padding: 20px;
+        margin: 20px 0;
+        border-radius: 5px;
+      }
+      .button {
+        display: inline-block;
+        padding: 12px 24px;
+        background-color: #1d9bf0;
+        color: #ffffff;
+        text-decoration: none;
+        border-radius: 9999px;
+        font-weight: bold;
+        margin: 20px 0;
+      }
+      .footer {
+        background-color: #f9fafb;
+        padding: 30px;
+        text-align: center;
+        color: #6b7280;
+        font-size: 14px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>Someone liked your tweet!</h1>
+      </div>
+      <div class="content">
+        <p>Hi {{username}},</p>
+        <p><strong>{{likerDisplayName}}</strong>
+          (@{{likerUsername}}) liked your tweet:</p>
+
+        <div class="tweet-preview">
+          <p>{{tweetContent}}</p>
+        </div>
+
+        <a href="{{tweetUrl}}" class="button">View Tweet</a>
+      </div>
+      <div class="footer">
+        <p>&copy; {{year}} Mini Tweets Application. All rights reserved.</p>
+        <p><a href="{{appUrl}}/settings/notifications">Manage email preferences</a></p>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,135 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/db/generated/client"
+}
+
+datasource db {
+  provider = "mongodb"
+  url = env("DATABASE_URL")
+}
+
+model Tweet {
+  id              String    @id @default(auto()) @map("_id") @db.ObjectId
+  content         String
+  media           Media[]   
+  viewCount       Int       @default(0)
+  isReply         Boolean   @default(false)
+  replyToId       String?   @db.ObjectId
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+  
+  // Foreign key - user exists in separate microservice
+  authorId        String    @db.ObjectId
+  
+  // Self-referencing for reply threads
+  replyTo         Tweet?    @relation("TweetReplies", fields: [replyToId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  replies         Tweet[]   @relation("TweetReplies")
+  
+  // Relations
+  likes           Like[]
+  retweets        Retweet[]
+  bookmarks       Bookmark[]
+  hashtags        TweetHashtag[]
+  mentions        TweetMention[]
+  
+  @@map("tweets")
+}
+
+// Composite type for media
+type Media {
+  url         String
+  type        MediaType
+  mimeType    String     
+  size        Int?        
+  width       Int?        
+  height      Int?        
+  duration    Int?        
+  thumbnail   String?     
+  altText     String?     
+}
+
+enum MediaType {
+  IMAGE
+  VIDEO
+  GIF
+  DOCUMENT
+  AUDIO
+}
+
+model Like {
+  id              String    @id @default(auto()) @map("_id") @db.ObjectId
+  createdAt       DateTime  @default(now())
+  
+  tweetId         String    @db.ObjectId
+  tweet           Tweet     @relation(fields: [tweetId], references: [id], onDelete: Cascade)
+  
+  userId          String    @db.ObjectId
+  
+  @@unique([tweetId, userId])
+  @@map("likes")
+}
+
+model Retweet {
+  id              String    @id @default(auto()) @map("_id") @db.ObjectId
+  comment         String?   // Quote tweet
+  createdAt       DateTime  @default(now())
+  
+  tweetId         String    @db.ObjectId
+  tweet           Tweet     @relation(fields: [tweetId], references: [id], onDelete: Cascade)
+  
+  // Foreign key - user exists in separate microservice
+  userId          String    @db.ObjectId
+  
+  @@unique([tweetId, userId])
+  @@map("retweets")
+}
+
+model Bookmark {
+  id              String    @id @default(auto()) @map("_id") @db.ObjectId
+  createdAt       DateTime  @default(now())
+  
+  tweetId         String    @db.ObjectId
+  tweet           Tweet     @relation(fields: [tweetId], references: [id], onDelete: Cascade)
+  
+  // Foreign key - user exists in separate microservice
+  userId          String    @db.ObjectId
+  
+  @@unique([tweetId, userId])
+  @@map("bookmarks")
+}
+
+model Hashtag {
+  id              String    @id @default(auto()) @map("_id") @db.ObjectId
+  name            String    @unique
+  tweetCount      Int       @default(0)
+  createdAt       DateTime  @default(now())
+  
+  tweets          TweetHashtag[]
+  
+  @@map("hashtags")
+}
+
+model TweetHashtag {
+  id              String    @id @default(auto()) @map("_id") @db.ObjectId
+  
+  tweetId         String    @db.ObjectId
+  tweet           Tweet     @relation(fields: [tweetId], references: [id], onDelete: Cascade)
+  
+  hashtagId       String    @db.ObjectId
+  hashtag         Hashtag   @relation(fields: [hashtagId], references: [id], onDelete: Cascade)
+  
+  @@unique([tweetId, hashtagId])
+  @@map("tweet_hashtags")
+}
+
+model TweetMention {
+  id              String    @id @default(auto()) @map("_id") @db.ObjectId
+  
+  tweetId         String    @db.ObjectId
+  tweet           Tweet     @relation(fields: [tweetId], references: [id], onDelete: Cascade)
+  
+  mentionedUserId String    @db.ObjectId
+  
+  @@unique([tweetId, mentionedUserId])
+  @@map("tweet_mentions")
+}

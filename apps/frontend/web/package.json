@@ -1,0 +1,40 @@
+{
+  "name": "@mta/web",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 5173",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint"
+  },
+  "dependencies": {
+    "@emotion/react": "latest",
+    "@emotion/styled": "latest",
+    "@hookform/resolvers": "^5.2.2",
+    "@mta/api-client": "workspace:*",
+    "@mta/constants": "workspace:*",
+    "@mui/icons-material": "^7.3.7",
+    "@mui/material": "latest",
+    "@mui/material-nextjs": "latest",
+    "@phosphor-icons/react": "^2.1.10",
+    "next": "16.0.10",
+    "react": "19.2.1",
+    "react-dom": "19.2.1",
+    "react-hook-form": "^7.68.0",
+    "react-icons": "^4.12.0",
+    "zod": "^4.1.13",
+    "zustand": "^5.0.9"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^10.3.0",
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.0.10",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  }
+}
